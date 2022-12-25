@@ -3,6 +3,7 @@
 Mini-tutorial on how to run the fully functional website.
 
 cd ./client //Access the Client folder.
+<br/>
 npm -f i  //Installs necessary Node modules for the client side.
 
 <br/>
