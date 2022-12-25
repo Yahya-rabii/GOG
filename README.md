@@ -16,9 +16,9 @@ npm run dev  //run the website.
 <br/>
 <br/>
 
-progress: 
-https://progress-bar.dev/<40>?title=<Admin-dashboard>
+Progress so far: 
+
 Until now admin dashboard = 40%
-https://progress-bar.dev/<100>?title=<Authentification>
+<br/>
 Authentification = 100%
 
