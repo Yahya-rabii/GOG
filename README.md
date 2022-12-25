@@ -1,25 +1,30 @@
 # GOG Website
 
-Mini-tutorial on how to run the fully functional website.
-
-cd ./client //Access the Client folder.
-<br/>
-npm -f i  //Installs necessary Node modules for the client side.
-
-<br/>
+<h2>Mini-tutorial on how to run the fully functional website.</h2>
 <br/>
 
-cd ../server //Access the Server folder.
+<b/>Run a Terminal (preferably a Command-prompt terminal).
 <br/>
-npm -f i //Installs necessary Node modules for the server side.
+
+<b>Access the Client folder : </b> <h3>&ensp;cd ./client</h3>
 <br/>
-npm run dev  //run the website.
+<b>Install the necessary Node modules for the client side : </b><br/>
+  <h3>&ensp;npm -f i</h3> 
+<br/>
+<b>Access the Server folder :</b>
+  <h3>&ensp;cd ../server</h3> 
+<br/>
+<b>Install the necessary Node modules for the server side :</b>
+  <h3>&ensp;npm -f i</h3>
+<br/>
+<b>Run the website :</b> 
+  <h3>&ensp;npm run dev</h3> 
 <br/>
 <br/>
 
-Progress so far: 
+<b>Progress so far:</b> 
 
-Until now admin dashboard = 40%
+Admin dashboard = 40%
 <br/>
 Authentification = 100%
 
