@@ -8,31 +8,47 @@ body {
     font-family: 'Roboto', sans-serif;
     color: white;
     margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-    
+    padding: 0;    
 }
 
 
 /* Path: client\src\components\Login\Login.css */
+
+
   
   .container {
-    background-color: white;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem 3rem;
     padding-bottom: 2rem;
     border-radius: 0.5rem;
-    border-top: rgb(253, 4, 4) 0.5rem solid;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 10rem;
+    margin-left: 6%;
+    box-shadow: 10ch;
+    border-radius: 20px;
   }
   
   h2 {
     margin: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+
+
   }
   
   form {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
+    
   }
   
   form div {
@@ -44,12 +60,18 @@ body {
   input {
     padding: 0.5rem;
     border-radius: 0.3rem;
-    border: 1px solid gray;
+    border: 1px solid rgb(255, 255, 255);
     font-size: 1.1rem;
+    backdrop-filter: blur(20px);
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+
   }
   
   button {
-    background-color: rgb(80, 98, 255);
+    background-color: rgb(147, 156, 236);
     color: white;
     border: none;
     padding: 0.5rem;
@@ -57,17 +79,24 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     border-radius: 0.3rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+
+
+
   }
   
   span a {
     text-decoration: none;
     color: rgb(80, 98, 255);
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+
   }
   
   .private {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(80, 98, 255);
+    backdrop-filter: blur(20px);
     color: white;
     display: flex;
     justify-content: center;
@@ -76,12 +105,26 @@ body {
     font-size: 3rem;
     flex-direction: column;
     gap: 1rem;
+    
   }
   
   .private button {
-    background-color: black;
+    backdrop-filter: blur(20px);
     padding: 2rem 10rem;
     font-size: 4rem;
     border-radius: 2rem;
+    cursor: pointer;
+    border: none;
+
+  }
+  
+  /* appBar */
+
+ .image {
+    backdrop-filter: blur(20px);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10%;
   }
   

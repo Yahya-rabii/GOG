@@ -1,10 +1,10 @@
-import { register_users, login_users } from "../controllers/authControllers.js";
+import {register_users,login_users,checkUser,} from "../controllers/authControllers.js";
 import express from "express";
-import { checkUser } from "../middlewares/authMiddleware.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router.post("/", checkUser);
+router.get("/me", authMiddleware(false), checkUser);
 router.post("/register", register_users);
 router.post("/login", login_users);
 

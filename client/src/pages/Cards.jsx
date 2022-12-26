@@ -1,12 +1,13 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
-import { Container, AppBar, Grow, Grid } from '@material-ui/core';
-import Posts from '../components/Posts/Posts';
-import Form from '../components/Form/Form';
-import GodLogo from '../images/GodLogo.png';
+import Cookies from "js-cookie";
+import { Container, AppBar, Grow, Grid } from "@material-ui/core";
+import Posts from "../components/Posts/Posts";
+import Form from "../components/Form/Form";
+import GodLogo from "../images/GodLogo.png";
 import { useDispatch } from "react-redux";
 
 import { getPosts } from "../actions/posts";
@@ -14,38 +15,31 @@ import useStyles from "../styles";
 
 export default function Cards() {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
+  const [user, setUser] = useState({
+    id: "",
+    email: "",
+    isAdmin: false,
+  });
 
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
+
   useEffect(() => {
-    const verifyUser = async () => {
-      if (!cookies.jwt) {
-        navigate("/login");
-      } else {
-        const { data } = await axios.post(
-          "/",
-          {},
-          {
-            withCredentials: true,
-          }
-        );
-        if (!data.status) {
-          removeCookie("jwt");
-          navigate("/login");
-        } else
-         alert(`Hi ${data.user}`)
-      }
-    };
-    verifyUser();
-  }, [cookies, navigate, removeCookie]);
+    (async () => {
+      const { data } = await axios.get("/api/auth/me", {
+        validateStatus: () => true,
+        withCredentials: true,
+      });
+      setUser(data.user);
+    })();
+  }, []);
 
   const logOut = () => {
-    removeCookie("jwt");
+    Cookies.remove("jwt");
     navigate("/login");
   };
   return (
@@ -56,22 +50,29 @@ export default function Cards() {
       </div>
 
       <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <img className={classes.image} src={GodLogo} alt="icon" height="50" />
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid container justifyContent ="space-between" alignItems="stretch" spacing={3}>
-            <Grid item xs={12} sm={7}>
-              <Posts setCurrentId={setCurrentId} />
+        <AppBar className={classes.appBar} position="static" color="inherit">
+          <img className={classes.image} src={GodLogo} alt="icon" height="50" />
+        </AppBar>
+        <Grow in>
+          <Container>
+            <Grid
+              container
+              justifyContent="space-between"
+              alignItems="stretch"
+              spacing={3}
+            >
+              <Grid item xs={12} sm={7}>
+                <Posts setCurrentId={setCurrentId} />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                {user.isAdmin && (
+                  <Form currentId={currentId} setCurrentId={setCurrentId} />
+                )}
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
+          </Container>
+        </Grow>
+      </Container>
     </>
   );
 }

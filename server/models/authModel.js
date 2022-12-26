@@ -1,36 +1,28 @@
 import mongoose from "mongoose";
-import { genSalt, hash, compare } from "bcrypt";
 
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Email is Required"],
     unique: true,
+    match: /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/,
   },
-  password: {
+  hash: {
     type: String,
-    required: [true, "Password is Required"],
-  },
-});
-
-userSchema.pre("save", async function (next) {
-  const salt = await genSalt();
-  this.password = hash(this.password, salt);
-  next();
-});
-
-userSchema.statics.login = async function (email, password) {
-  const user = await this.findOne({ email });
-  if (user) {
-    const auth = (user.password === password); //i should add crypto
-    if (auth) {
-      return user;
-    }
-    throw Error("incorrect password");
+    required: true
+  },//hash: crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex'),
+  salt: {
+    type: String,
+    required: true,
+  },//salt: crypto.randomBytes(16).toString('hex'),
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false
   }
-  throw Error("incorrect email");
-};
+});
 
-var usermodel = mongoose.model("Users", userSchema);
 
-export default usermodel;
+
+
+export default mongoose.model("Users", userSchema);
