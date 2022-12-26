@@ -12,7 +12,10 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors()); // This is a middleware that allows us to make requests to our API from different origins
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+})); // This is a middleware that allows us to make requests to our API from different origins
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));// This is a middleware that allows us to parse JSON data from the body of HTTP requests
