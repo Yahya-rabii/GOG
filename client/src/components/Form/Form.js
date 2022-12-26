@@ -48,18 +48,24 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   return (
-    <Paper className={classes.paper}>
+    <>
+      <div className="private">
+        <h3>Admin dashboard</h3>
+      </div>
+
       <form
+        className="addingfrm"
         autoComplete="off"
         noValidate
-        className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? `Editing "${post.title}"` : "Creating a Memory"}
+          {currentId ? `Editing "${post.title}"` : "Creating a product post"}
         </Typography>
         <TextField
+          className="addinginput"
           name="creator"
+          multiline
           variant="outlined"
           label="Creator"
           fullWidth
@@ -69,7 +75,9 @@ const Form = ({ currentId, setCurrentId }) => {
           }
         />
         <TextField
+          className="addinginput"
           name="title"
+          multiline
           variant="outlined"
           label="Title"
           fullWidth
@@ -77,6 +85,7 @@ const Form = ({ currentId, setCurrentId }) => {
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
         <TextField
+          className="addinginput"
           name="message"
           variant="outlined"
           label="Message"
@@ -89,8 +98,10 @@ const Form = ({ currentId, setCurrentId }) => {
           }
         />
         <TextField
+          className="addinginput"
           name="tags"
           variant="outlined"
+          multiline
           label="Tags (coma separated)"
           fullWidth
           value={postData.tags}
@@ -111,7 +122,7 @@ const Form = ({ currentId, setCurrentId }) => {
           className={classes.buttonSubmit}
           variant="contained"
           color="primary"
-          size="large"
+          size="small"
           type="submit"
           fullWidth
         >
@@ -127,7 +138,7 @@ const Form = ({ currentId, setCurrentId }) => {
           Clear
         </Button>
       </form>
-    </Paper>
+    </>
   );
 };
 

@@ -102,20 +102,20 @@ body {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 1rem;
     flex-direction: column;
-    gap: 1rem;
     
   }
   
-  .private button {
+  .logout {
     backdrop-filter: blur(20px);
-    padding: 2rem 10rem;
-    font-size: 4rem;
     border-radius: 2rem;
     cursor: pointer;
-    border: none;
-
+    position: relative;
+    margin-left: 70%;
+    left: 0%;
+    top: 0%;
+    background-color: black
   }
   
   /* appBar */
@@ -127,3 +127,60 @@ body {
     border-radius: 10%;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .addingfrm {
+    border: 1px solid rgb(255, 255, 255);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    margin-top: 10rem;
+    margin-left: 6%;
+
+  }
+  
+  .addingfrm div {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 0.5rem;
+
+
+  }
+  
+  .addinginput {
+    color: white;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    backdrop-filter: blur(20px);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgb(255, 255, 255);
+    
+  }
+  .addinginput label{
+
+    color: white;
+  }
+ 
+ 

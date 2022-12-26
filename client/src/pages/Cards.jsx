@@ -44,14 +44,13 @@ export default function Cards() {
   };
   return (
     <>
-      <div className="private">
-        <h1>Admin dashboard</h1>
-        <button onClick={logOut}>Log out</button>
-      </div>
+
+
 
       <Container maxWidth="lg">
         <AppBar className={classes.appBar} position="static" color="inherit">
           <img className={classes.image} src={GodLogo} alt="icon" height="50" />
+          <button onClick={logOut} className="logout" >Log out</button>
         </AppBar>
         <Grow in>
           <Container>

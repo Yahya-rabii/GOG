@@ -10,7 +10,7 @@ import postRoutes from "./routes/posts.js";
 
 dotenv.config();
 const app = express();
-
+app.use(express.json({ limit: "30mb", extended: true })); // limit: '30mb' is the default
 app.use(express.json());
 app.use(cors({
   origin: "http://localhost:3000",
