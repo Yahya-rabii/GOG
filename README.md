@@ -12,7 +12,7 @@
   <h3>&ensp;npm -f i</h3> 
 <br/>
 <b>Access the Server folder :</b>
-  <h3>&ensp;cd ../server</h3> 
+  <h3>&ensp;cd ..\server</h3> 
 <br/>
 <b>Install the necessary Node modules for the server side :</b>
   <h3>&ensp;npm -f i</h3>
