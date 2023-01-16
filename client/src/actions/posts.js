@@ -6,10 +6,10 @@ import {
 } from "../constants/actionTypes";
 import * as api from "../api/index.js";
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (page = 1) => async (dispatch) => {
   try {
-    const { data } = await api.fetchPosts();
-    dispatch({ type: FETCH_ALL, payload: data });
+    const { data } = await api.fetchPosts(page);
+    dispatch({ type: FETCH_ALL, payload: data.postMessages });
   } catch (error) {
     console.log(error.message);
   }
@@ -32,7 +32,6 @@ export const updatePost = (id, post) => async (dispatch) => {
     console.log(error.message);
   }
 };
-
 
 export const deletePost = (id) => async (dispatch) => {
   try {

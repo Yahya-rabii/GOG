@@ -1,9 +1,7 @@
 import usermodel from "../models/authModel.js";
-import {
-    verify
-} from "jsonwebtoken";
+import {verify} from "jsonwebtoken";
 
-
+  
 export const authMiddleware = (isAdminRequired) => async (req, res, next) => {
     const token = req.cookies.jwt;
     if (!token) {
