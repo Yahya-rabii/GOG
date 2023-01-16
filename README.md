@@ -24,7 +24,9 @@
 
 <b>Progress so far:</b> 
 
-Admin dashboard = 40%
+Admin dashboard = 100%
 <br/>
 Authentification = 100%
+<br/>
+Pagination = 100%
 
